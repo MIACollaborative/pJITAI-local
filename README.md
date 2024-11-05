@@ -29,7 +29,7 @@ gunicorn --config gunicorn-cfg.py run:app
 ```
 Both commands are doing the same task, but the difference is which server it is using. The first command uses Flask server to run it, and the second command uses gunicorn to run. During development, you can use the first command, but during production, gunicorn can be more appropriate.
 
-Once the repo is running, you can go to `http://127.0.0.1:5005` to check the running repo. 
+Once the repo is running, you can go to `http://127.0.0.1:8080` to check the running repo. 
 
 Check `DBMS = mysql+pymysql://root:pass@localhost:3306/pJITAI` is printed when `python run.py` or `gunicorn --config gunicorn-cfg.py run:app`
 

@@ -33,7 +33,7 @@ services:
     env_file: .env_docker
     build: .
     ports:
-      - "5005:5005"  # host:container ports mapping
+      - "8080:8080"  # host:container ports mapping
     networks:
       - db_network
       - web_network
