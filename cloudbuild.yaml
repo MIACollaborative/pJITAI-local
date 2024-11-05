@@ -1,5 +1,19 @@
+# steps:
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['build', '-t', 'us-east5-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/my-image', '.']
+
 steps:
+# Build the container image
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'us-east5-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/my-image', '.']
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us-east5-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/my-image']
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'SERVICE_NAME', '--image', 'us-east5-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/my-image', '--region', 'us-central1']
+images:
+- us-east5-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/my-image
 options:
   logging: CLOUD_LOGGING_ONLY
