@@ -12,7 +12,7 @@ steps:
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
-  args: ['run', 'deploy', 'SERVICE_NAME', '--image', 'us-central1-docker.pkg.dev/mia-collab-sandbox/my-docker-repo/my-image', '--region', 'us-central1']
+  args: ['run', 'deploy', 'pjitai-web-service', '--image', 'us-central1-docker.pkg.dev/mia-collab-sandbox/my-docker-repo/my-image', '--region', 'us-central1']
 images:
 - us-central1-docker.pkg.dev/mia-collab-sandbox/my-docker-repo/my-image
 options:
