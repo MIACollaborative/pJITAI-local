@@ -49,7 +49,7 @@ class Config(object):
         # config('DB_HOST', default='localhost'),
         config('PUBLIC_IP_ADDRESS', default='34.134.177.63'),
         # config('DB_PORT', default=3306),
-        config('DB_NAME', default='pJITAI-db'),
+        config('DB_NAME', default='mysql'),
         config('PROJECT_ID', default='mia-collab-sandbox:us-central1:pjitai-db')
 
     )
