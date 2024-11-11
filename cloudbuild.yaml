@@ -3,10 +3,10 @@
 #   args: ['build', '-t', 'us-east5-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/my-image', '.']
 
 steps:
-- name: 'gcr.io/cloudsql-docker/gce-proxy:1.19.1'
-  entrypoint: '/cloud_sql_proxy'
-  args:
-    - '-instances=mia-collab-sandbox:us-central1:pjitai-db=tcp:3306'
+# - name: 'gcr.io/cloudsql-docker/gce-proxy:1.19.1'
+#   entrypoint: '/cloud_sql_proxy'
+#   args:
+#     - '-instances=mia-collab-sandbox:us-central1:pjitai-db=tcp:3306'
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'us-central1-docker.pkg.dev/mia-collab-sandbox/my-docker-repo/my-image', '.']
