@@ -44,7 +44,7 @@ class Config(object):
     # mysql + mysqldb://root:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}?unix_socket =/cloudsql/{PROJECT_ID}:{INSTANCE_NAME}
     SQLALCHEMY_DATABASE_URI = '{}://{}:{}@{}/{}?unix_socket=/cloudsql/{}'.format(
         config('DB_ENGINE', default='mysql+pymysql'),
-        config('DB_USERNAME', default='root'),
+        config('DB_USERNAME', default='pjitai-user'),
         config('DB_PASS', default='passpass'),
         # config('DB_HOST', default='localhost'),
         config('PUBLIC_IP_ADDRESS', default='34.134.177.63'),
