@@ -40,13 +40,17 @@ class Config(object):
 
     # This will create a file in <app> FOLDER
     # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'db.sqlite3')
-    SQLALCHEMY_DATABASE_URI = '{}://{}:{}@{}:{}/{}'.format(
+    # mysql+pymysql://<db_user>:<db_pass>@/<db_name>?unix_socket=<socket_path>/<cloud_sql_instance_name>
+    # mysql + mysqldb://root:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}?unix_socket =/cloudsql/{PROJECT_ID}:{INSTANCE_NAME}
+    SQLALCHEMY_DATABASE_URI = '{}://{}:{}@{}/{}?unix_socket =/cloudsql/{}'.format(
         config('DB_ENGINE', default='mysql+pymysql'),
         config('DB_USERNAME', default='root'),
-        config('DB_PASS', default='pass'),
-        config('DB_HOST', default='localhost'),
-        config('DB_PORT', default=3306),
-        config('DB_NAME', default='pJITAI'),
+        config('DB_PASS', default='passpass'),
+        # config('DB_HOST', default='localhost'),
+        config('PUBLIC_IP_ADDRESS', default='34.134.177.63'),
+        # config('DB_PORT', default=3306),
+        config('DB_NAME', default='pJITAI-db'),
+        config('PROJECT_ID', default='mia-collab-sandbox:us-central1:pjitai-db')
 
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -67,7 +71,7 @@ class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = '{}://{}:{}@{}:{}/{}'.format(
         config('DB_ENGINE', default='mysql+pymysql'),
         config('DB_USERNAME', default='root'),
-        config('DB_PASS', default='pass'),
+        config('DB_PASS', default='passpass'),
         config('DB_HOST', default='localhost'),
         config('DB_PORT', default=3306),
         config('DB_NAME', default='pJITAI')
