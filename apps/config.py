@@ -42,7 +42,7 @@ class Config(object):
     # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'db.sqlite3')
     # mysql+pymysql://<db_user>:<db_pass>@/<db_name>?unix_socket=<socket_path>/<cloud_sql_instance_name>
     # mysql + mysqldb://root:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}?unix_socket =/cloudsql/{PROJECT_ID}:{INSTANCE_NAME}
-    SQLALCHEMY_DATABASE_URI = '{}://{}:{}@{}/{}?unix_socket =/cloudsql/{}'.format(
+    SQLALCHEMY_DATABASE_URI = '{}://{}:{}@{}/{}?unix_socket=/cloudsql/{}'.format(
         config('DB_ENGINE', default='mysql+pymysql'),
         config('DB_USERNAME', default='root'),
         config('DB_PASS', default='passpass'),
